@@ -1,0 +1,83 @@
+@import "./variables.scss";
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    line-height: 16px;
+    color: $grey-4;
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    color: $grey-4;
+    text-decoration: underline;
+}
+
+h1,h2,h3,h4 {
+    margin: 0;
+    color: $grey-5;
+    line-height: 40px;
+}
+
+label {
+    display: block;
+    color: $grey-5;
+    margin-bottom: 0.5rem;
+}
+
+input[type=text], input[type=password] {
+    border: 1px solid $grey-2;
+    border-radius: 8px;
+    padding: 16px;
+    width: 100%;
+    color: inherit;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+button {
+    border-radius: 4px;
+    width: 100%;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.btn {
+    color: #fff;
+    background: $color-primary-light;
+    border: none;
+    font-size: 1.15rem;
+    transition: background-color .15s ease-in;
+    
+    &:hover {
+        background: $color-primary-dark;
+    }
+    
+    &:disabled {
+        background: $grey-4;
+        cursor: not-allowed;
+    }
+}
+
+.btn-outline {
+    color: $color-primary-light;
+    border:1px solid $color-primary-light;
+    background: #fff;
+    transition: color .15s ease-in, border-color .15s ease-in;
+    
+    &:hover {
+        color: $color-primary-dark;
+        border-color: $color-primary-dark;
+    }
+    &:disabled {
+        color: $grey-4;
+        border-color: $grey-4;
+        cursor: not-allowed;
+    }
+}

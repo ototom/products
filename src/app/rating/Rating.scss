@@ -1,0 +1,30 @@
+.rating {
+    margin-bottom: 1.1rem;
+
+    .star {
+        border: none;
+        background: transparent;
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        padding: 0;
+
+        &:not(:last-child) {
+            margin-right: 0.7rem;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 13px;
+            height: 13px;
+            background-image: url('../../assets/empty-star.svg');
+        }
+    }
+
+    .star--is-marked {
+        &::after {
+            background-image: url('../../assets/filled-star.svg');
+        }
+    }
+}

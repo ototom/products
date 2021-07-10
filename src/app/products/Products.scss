@@ -1,1 +1,37 @@
 @import '../../variables.scss';
+
+.products {
+    &__container {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        column-gap: 1.7rem;
+        row-gap: 1.7rem;
+        margin-bottom: 4rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .products {
+        &__container {
+            grid-template-rows: auto;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .products {
+        &__container {
+            grid-template-rows: auto;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+@media (min-width: 1400px) {
+    .products {
+        &__container {
+            grid-template-rows: auto;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}

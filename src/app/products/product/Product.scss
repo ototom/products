@@ -1,0 +1,44 @@
+@import '../../../variables.scss';
+
+.product {
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+
+    &__img {
+        height: 170px;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            object-fit: cover;
+            height: 170px;
+        }
+    }
+
+    &__label {
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        background: $color-secondary;
+        padding: 4px 16px;
+        color: #fff;
+    }
+
+    &__content {
+        padding: 0 1.1rem;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__title {
+        font-size: 1.3rem;
+    }
+
+    &__footer {
+        margin-top: 2.2rem;
+        padding: 0 1.1rem 1.7rem 1.1rem;
+    }
+}

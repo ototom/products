@@ -1,0 +1,49 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 110;
+
+    &__title {
+        padding: 0 2rem;
+        margin: 0.5rem 0;
+    }
+
+    &__description {
+        padding: 0 2rem;
+        margin: 0 0 2rem 0;
+    }
+
+    &__image {
+        height: 350px;
+
+        img {
+            height: 350px;
+            object-fit: cover;
+        }
+    }
+
+    &__close-btn {
+        position: absolute;
+        border: none;
+        right: 2rem;
+        top: 1rem;
+        background: transparent;
+        width: 14px;
+        height: 14px;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 14px;
+            height: 14px;
+            background-image: url('../../assets/close.svg');
+        }
+    }
+}

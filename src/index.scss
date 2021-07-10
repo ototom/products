@@ -47,6 +47,13 @@ label {
     margin-bottom: 0.5rem;
 }
 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
 input[type='text'],
 input[type='password'],
 input[type='search'] {
@@ -70,7 +77,6 @@ button {
     color: #fff;
     background: $color-primary-light;
     border: none;
-    font-size: 1.15rem;
     transition: background-color 0.15s ease-in;
 
     &:hover {

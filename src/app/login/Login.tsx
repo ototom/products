@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Login.scss';
 
+import Logo from '../logo/Logo';
+
 import { AppRoute } from 'routing/AppRoute.enum';
 
 export const Login = () => {
@@ -10,7 +12,7 @@ export const Login = () => {
       <div className="login__background-img" />
       <div className="login__content">
         <div className="login__header">
-          <h2>join.tsh.io</h2>
+          <Logo />
         </div>
         <div className="login__form">
           <h2>Login</h2>
@@ -19,13 +21,13 @@ export const Login = () => {
               <label htmlFor="username">
                 Username:
               </label>
-              <input id="username" name="username" type="text" />
+              <input id="username" name="username" type="text" placeholder="Enter username" />
             </div>
             <div>
               <label htmlFor="password">
                 Password:
               </label>
-              <input id="password" name="password" type="password" />
+              <input id="password" name="password" type="password" placeholder="Enter password" />
             </div>
             <button className="btn" type="submit">Log in</button>
             <Link to={AppRoute.login}>Forgot password?</Link>

@@ -5,13 +5,16 @@
 
     &__background-img {
         display: none;
-        
     }
 
     &__content {
         padding: 0 1.7rem;
         flex-grow: 1;
-        
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
     }
 
     &__header {
@@ -25,12 +28,14 @@
             font-size: 1.6rem;
         }
     }
-    
+
     &__form {
         width: 100%;
         flex-grow: 1;
-        
-        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
         h2 {
             font-size: 2.1rem;
             margin-bottom: 2rem;
@@ -40,7 +45,6 @@
             margin: 3.3rem 0 1rem 0;
         }
     }
-    
 }
 
 @media (min-width: 1024px) {
@@ -51,32 +55,20 @@
             background-size: cover;
             width: 600px;
             height: 100vh;
-            float:left;
         }
 
-        &__header, &__form {
-            width: 300px;
-        }
-
-        &__content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
+        &__header,
         &__form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            width: 300px;
         }
     }
 }
 
 @media (min-width: 1200px) {
     .login {
-        &__header, &__form {
-        width: 500px;
+        &__header,
+        &__form {
+            width: 500px;
+        }
     }
-    }
-    
 }

@@ -1,13 +1,14 @@
-import React from 'react'
-import { createPortal } from 'react-dom'
-import './Backdrop.scss'
+import React from 'react';
+import { createPortal } from 'react-dom';
 
-const Backdrop = ({onClick} : {onClick: ()=>void}) => {
+import createContainer from 'utils/createContainer';
+import './Backdrop.scss';
+
+const Backdrop = ({ onClick }: { onClick: () => void }) => {
     return createPortal(
-        <div className="backdrop" onClick={onClick}>
-            
-        </div>, document.getElementById('backdrop') as HTMLElement
-    )
-}
+        <div className='backdrop' onClick={onClick}></div>,
+        createContainer('backdrop-container')
+    );
+};
 
-export default Backdrop
+export default Backdrop;

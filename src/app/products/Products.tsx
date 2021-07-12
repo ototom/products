@@ -1,25 +1,91 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getProducts } from 'store/actions/productsActions';
+import { RootStore } from 'store/store';
 import Header from 'app/header/Header';
 import Product from './product/Product';
 import Pagination from 'app/pagination/Pagination';
+import EmptyList from './emptyList/EmptyList';
+import LoadingSpinner from 'app/loadingSpinner/LoadingSpinner';
 import './Products.scss';
 
-
 export const Products = () => {
-  return (
-    <>
-      <Header />
-      <div className="container products__container">
-        <Product id={1} name="White Watch" description="lorem ipsum dolor sit amet" rating={3} image="https://picsum.photos/id/6/300" promo={true} active={false} />
-        <Product id={2} name="White Watch" description="lorem ipsum dolor sit amet" rating={5} image="https://picsum.photos/id/33/300" promo={false} active={true} />
-        <Product id={3} name="White Watch" description="lorem ipsum dolor sit amet" rating={0} image="https://picsum.photos/id/4/300" promo={false} active={true} />
-        <Product id={4} name="White Watch" description="lorem ipsum dolor sit amet" rating={1} image="https://picsum.photos/id/91/300" promo={true} active={true} />
-        <Product id={5} name="White Watch" description="lorem ipsum dolor sit amet" rating={1} image="https://picsum.photos/id/53/300" promo={false} active={false} />
-        <Product id={6} name="White Watch" description="lorem ipsum dolor sit amet" rating={2} image="https://picsum.photos/id/32/300" promo={false} active={false} />
-        <Product id={7} name="White Watch" description="lorem ipsum dolor sit amet" rating={4} image="https://picsum.photos/id/11/300" promo={false} active={true} />
-        <Product id={8} name="White Watch" description="lorem ipsum dolor sit amet" rating={1} image="https://picsum.photos/id/99/300" promo={true} active={true} />
-      </div>
-      <Pagination page={1} totalPages={55} />
-    </>
-  );
+    const history = useHistory();
+    const { data, totalPages, isLoading } = useSelector(
+        (state: RootStore) => state.products
+    );
+    const dispatch = useDispatch();
+
+    const { pageNumber } = useParams<{ pageNumber: string }>();
+
+    const [isActive, setIsActive] = useState<boolean>(false);
+    const [isPromo, setIsPromo] = useState<boolean>(false);
+    const [searchValue, setSearchValue] = useState<string>('');
+    const [isUserTyping, setIsUserTyping] = useState<boolean>(false);
+
+    const onToggleActiveFilter = (): void => setIsActive((prev) => !prev);
+    const onTogglePromoFilter = (): void => setIsPromo((prev) => !prev);
+    const onChangeSearchValue = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setIsUserTyping(true);
+        setSearchValue(e.target.value);
+    };
+
+    useEffect(() => {
+        if (!isUserTyping) {
+            dispatch(getProducts(pageNumber, searchValue, isActive, isPromo));
+        }
+
+        if (isUserTyping) {
+            const timer = setTimeout(() => {
+                setIsUserTyping(false);
+            }, 700);
+
+            return () => {
+                clearTimeout(timer);
+            };
+        }
+    }, [isActive, isPromo, searchValue, pageNumber, dispatch, isUserTyping]);
+
+    useEffect(() => {
+        if (+pageNumber > totalPages) {
+            history.push('/page/1');
+        }
+    }, [history, pageNumber, totalPages]);
+
+    return (
+        <>
+            <Header
+                onToggleActiveFilter={onToggleActiveFilter}
+                onTogglePromoFilter={onTogglePromoFilter}
+                onChangeSearchValue={onChangeSearchValue}
+            />
+            {isLoading ? (
+                <LoadingSpinner />
+            ) : data.length > 0 ? (
+                <>
+                    <div className='container products__container'>
+                        {data.map((product) => (
+                            <Product
+                                key={product.id}
+                                id={product.id}
+                                name={product.name}
+                                description={product.description}
+                                rating={product.rating}
+                                image={product.image}
+                                promo={product.promo}
+                                active={product.active}
+                            />
+                        ))}
+                    </div>
+                    <Pagination page={+pageNumber} totalPages={totalPages} />
+                </>
+            ) : (
+                <EmptyList />
+            )}
+        </>
+    );
 };

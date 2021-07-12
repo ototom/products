@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .login {
     &__wrapper {
         display: flex;
@@ -8,19 +10,19 @@
     }
 
     &__content {
-        padding: 0 1.7rem;
-        flex-grow: 1;
+        padding: 0 $gap-md;
+        height: 100vh;
         background: #fff;
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 100vh;
     }
 
     &__header {
         display: flex;
         align-items: center;
-        height: 150px;
+        padding: $gap-lg 0;
         background: #fff;
         width: 100%;
 
@@ -38,11 +40,11 @@
 
         h2 {
             font-size: 2.1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
         }
 
         button {
-            margin: 3.3rem 0 1rem 0;
+            margin: $gap-lg 0 15px 0;
         }
     }
 }

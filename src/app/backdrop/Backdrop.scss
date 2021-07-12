@@ -1,10 +1,12 @@
+@import '../../variables.scss';
+
 .backdrop {
     position: fixed;
     top: 0;
-    height: 100vh;
     left: 0;
     right: 0;
-    background: #1a1b1d;
+    height: 100vh;
+    background: $grey-5;
     opacity: 0.9;
     z-index: 100;
 }

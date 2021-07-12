@@ -3,7 +3,7 @@
 .pagination {
     text-align: center;
     color: $grey-5;
-    margin-bottom: 4rem;
+    margin-bottom: $gap-lg;
 
     &__list {
         list-style: none;
@@ -13,10 +13,7 @@
 
     &__element {
         display: inline-block;
-
-        &:not(:last-child) {
-            margin-right: 1.1rem;
-        }
+        margin: 0 $gap-sm;
 
         a {
             color: inherit;
@@ -27,8 +24,30 @@
             }
         }
 
+        &--first {
+            margin: 0 $gap-sm 0 0;
+        }
+        &--last {
+            margin: 0 0 0 $gap-sm;
+        }
+
         &--active {
             color: $color-primary-light;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .pagination {
+        &__element {
+            margin: 0 15px;
+        }
+
+        &--first {
+            margin: 0 $gap-md 0 0;
+        }
+        &--last {
+            margin: 0 0 0 $gap-md;
         }
     }
 }

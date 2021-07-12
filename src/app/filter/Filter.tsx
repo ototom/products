@@ -1,13 +1,26 @@
-import React from 'react'
-import './Filter.scss'
+import React from 'react';
+import './Filter.scss';
 
-const Filter = ({name, id, label} : {name?:string, id:string, label?:string}) => {
-    return (
-        <>
-            <input type="checkbox" name={name} id={id} className="checkbox" />
-            <label htmlFor={id}>{label}</label>
-        </>
-    )
+interface IFilter {
+    name?: string;
+    id: string;
+    label?: string;
+    onClick: () => void;
 }
 
-export default Filter
+const Filter = ({ name, id, label, onClick }: IFilter) => {
+    return (
+        <>
+            <input
+                type='checkbox'
+                name={name}
+                id={id}
+                className='checkbox'
+                onClick={onClick}
+            />
+            <label htmlFor={id}>{label}</label>
+        </>
+    );
+};
+
+export default Filter;

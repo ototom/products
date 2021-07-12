@@ -1,3 +1,6 @@
+@import '../../variables.scss';
+$close-btn-size: 14px;
+
 .modal {
     position: fixed;
     top: 50%;
@@ -6,18 +9,18 @@
     width: 90%;
     max-width: 600px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: $border-radius;
     overflow: hidden;
     z-index: 110;
 
     &__title {
-        padding: 0 2rem;
-        margin: 0.5rem 0;
+        padding: 0 $gap-md;
+        margin: $gap-md 0 $gap-sm 0;
     }
 
     &__description {
-        padding: 0 2rem;
-        margin: 0 0 2rem 0;
+        padding: 0 $gap-md;
+        margin: 0 0 $gap-lg 0;
     }
 
     &__image {
@@ -32,18 +35,20 @@
     &__close-btn {
         position: absolute;
         border: none;
-        right: 2rem;
-        top: 1rem;
+        right: $gap-md;
+        top: $gap-md;
         background: transparent;
-        width: 14px;
-        height: 14px;
+        width: $close-btn-size;
+        height: $close-btn-size;
+        padding: 0;
 
         &::after {
             content: '';
             display: block;
-            width: 14px;
-            height: 14px;
+            width: $close-btn-size;
+            height: $close-btn-size;
             background-image: url('../../assets/close.svg');
+            background-repeat: no-repeat;
         }
     }
 }

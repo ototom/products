@@ -1,25 +1,36 @@
+@import '../../variables.scss';
+$star-size: 13px;
+
 .rating {
-    margin-bottom: 1.1rem;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
 
     .star {
         border: none;
         background: transparent;
-        display: inline-block;
-        width: 13px;
-        height: 13px;
+        width: $star-size;
+        height: $star-size;
         padding: 0;
 
-        &:not(:last-child) {
-            margin-right: 0.7rem;
+        &:not(:first-child) {
+            margin-right: $gap-sm;
         }
 
         &::after {
             content: '';
             display: block;
-            width: 13px;
-            height: 13px;
+            width: $star-size;
+            height: $star-size;
             background-image: url('../../assets/empty-star.svg');
+            transition: all 0.12s linear;
         }
+    }
+    > .star:hover:after,
+    > .star:hover ~ .star::after {
+        background-image: url('../../assets/filled-star.svg');
+        transform: scale(1.25);
     }
 
     .star--is-marked {

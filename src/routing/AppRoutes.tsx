@@ -7,12 +7,12 @@ import { Products } from 'app/products/Products';
 import { AppRoute } from './AppRoute.enum';
 
 export const AppRoutes = () => {
-  return (
-    <Switch>
-      <Route path={AppRoute.home} exact component={Products} />
-      <Route path={AppRoute.login} component={Login} />
-
-      <Redirect to={AppRoute.home} />
-    </Switch>
-  );
+    return (
+        <Switch>
+            <Route path={AppRoute.login} component={Login} />
+            <Route path={AppRoute.products} component={Products} />
+            <Redirect from={AppRoute.home} to='/page/1' exact />
+            <Redirect to={AppRoute.home} />
+        </Switch>
+    );
 };

@@ -15,6 +15,7 @@ node_modules
 .DS_Store
 .env.babelsheet
 .env
+.env.dist
 
 
 npm-debug.log*

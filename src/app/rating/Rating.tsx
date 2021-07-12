@@ -1,23 +1,24 @@
-import React,{useState,useEffect} from 'react'
-import './Rating.scss'
+import React, { useState, useEffect } from 'react';
+import './Rating.scss';
 
-const Rating = ({rating} : {rating: number}) => {
+const Rating = ({ rating }: { rating: number }) => {
     const [stars, setStars] = useState<React.ReactNode[]>([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         const starsArray = [];
-        for(let i = 0; i<5; i++) {
-            starsArray.push(<button key={i} className={`star ${i<rating ? 'star--is-marked':''}`} />);
+        for (let i = 0; i < 5; i++) {
+            starsArray.unshift(
+                <button
+                    key={i}
+                    className={`star ${i < rating ? 'star--is-marked' : ''}`}
+                />
+            );
         }
-        
+
         setStars(starsArray);
-    },[rating])
+    }, [rating]);
 
-    return (
-        <div className="rating">
-            {stars}
-        </div>
-    )
-}
+    return <div className='rating'>{stars}</div>;
+};
 
-export default Rating
+export default Rating;

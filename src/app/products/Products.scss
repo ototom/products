@@ -5,9 +5,9 @@
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: 1fr;
-        column-gap: 1.7rem;
-        row-gap: 1.7rem;
-        margin-bottom: 4rem;
+        column-gap: $gap-md;
+        row-gap: $gap-md;
+        margin: $gap-lg auto;
     }
 }
 

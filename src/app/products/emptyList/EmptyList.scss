@@ -1,0 +1,32 @@
+@import '../../../variables.scss';
+
+.empty-list {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: $border-radius;
+    width: 100%;
+    margin: $gap-lg auto;
+    padding: 120px 0;
+
+    &__icon {
+        display: block;
+        width: 39px;
+        height: 48px;
+        background: url('../../../assets/bag-icon.svg');
+        background-repeat: no-repeat;
+        margin-bottom: $gap-md;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .empty-list {
+        width: 600px;
+    }
+}

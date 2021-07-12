@@ -41,17 +41,18 @@ img {
     height: auto;
 }
 
-label {
-    display: block;
-    color: $grey-5;
-    margin-bottom: 0.5rem;
-}
-
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
+}
+
+// ===== FORMS
+label {
+    display: block;
+    color: $grey-5;
+    margin-bottom: 0.5rem;
 }
 
 input[type='text'],
@@ -66,11 +67,16 @@ input[type='search'] {
     font-size: 1rem;
 }
 
+// ===== BUTTONS
 button {
     border-radius: 4px;
     width: 100%;
     padding: 12px;
     cursor: pointer;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
 }
 
 .btn {
@@ -85,7 +91,6 @@ button {
 
     &:disabled {
         background: $grey-4;
-        cursor: not-allowed;
     }
 }
 
@@ -102,6 +107,20 @@ button {
     &:disabled {
         color: $grey-4;
         border-color: $grey-4;
+    }
+}
+
+a.btn-outline {
+    display: block;
+    border-radius: 4px;
+    width: 100%;
+    padding: 12px;
+    max-width: 100px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    &:disabled {
         cursor: not-allowed;
     }
 }

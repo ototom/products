@@ -1,3 +1,6 @@
+$icon-size: 18px;
+$text-field-padding: 16px;
+
 .search-field {
     position: relative;
 
@@ -5,20 +8,20 @@
         display: block;
         width: 100%;
         margin-bottom: 0;
-        padding-right: calc(16px + 18px + 16px);
+        padding-right: calc(2 * #{$text-field-padding} + #{$icon-size});
     }
 
     &__icon {
         position: absolute;
         top: 50%;
-        right: 16px;
+        right: $text-field-padding;
         transform: translateY(-50%);
 
         &::before {
             content: '';
             display: block;
-            width: 18px;
-            height: 18px;
+            width: $icon-size;
+            height: $icon-size;
             background-image: url('../../../assets/search.svg');
         }
     }

@@ -1,15 +1,23 @@
-import React from 'react'
-import {createPortal} from 'react-dom'
-import './Dropdown.scss'
+import React from 'react';
+import { createPortal } from 'react-dom';
 
-const Dropdown = ({isActive, position}: {isActive: boolean, position: {top: number, left: number}}) => {
+import createContainer from 'utils/createContainer';
+import './Dropdown.scss';
 
-    if(!isActive) return null;
-    return createPortal(
-        <div className="dropdown" style={position}>
-            <button>Logout</button>
-        </div>, document.getElementById('dropdown-container') as HTMLElement
-    )
+interface IDropdown {
+    isActive: boolean;
+    position: { top: number; left: number };
+    children: React.ReactNode;
 }
 
-export default Dropdown
+const Dropdown = ({ isActive, position, children }: IDropdown) => {
+    if (!isActive) return null;
+    return createPortal(
+        <div className='dropdown' style={position}>
+            {children}
+        </div>,
+        createContainer('dropdown-container')
+    );
+};
+
+export default Dropdown;

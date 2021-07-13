@@ -18,7 +18,9 @@ const Filter = ({ name, id, label, onClick }: IFilter) => {
                 className='checkbox'
                 onClick={onClick}
             />
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={id} data-cy={id + '-label'}>
+                {label}
+            </label>
         </>
     );
 };

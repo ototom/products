@@ -10,8 +10,9 @@ $close-btn-size: 14px;
     max-width: 600px;
     background: #fff;
     border-radius: $border-radius;
-    overflow: hidden;
     z-index: 110;
+    max-height: 85vh;
+    overflow: auto;
 
     &__title {
         padding: 0 $gap-md;
